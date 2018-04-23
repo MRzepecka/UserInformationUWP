@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UserInformationUWP.Enumes;
+﻿using UserInformationUWP.Enumes;
 using UserInformationUWP.Services;
-using UserInformationUWP.ViewModels.Base.UserControlViewModel;
+using UserInformationUWP.ViewModels.Base;
 
 namespace UserInformationUWP.ViewModels
 {
-    public class LastNameViewModel : BaseControllerViewModel
+    public class LastNameViewModel : BaseControlerViewModel
     {
         public override string NameText { get => ResourceLoader.GetString(UserInformationIndex.LastName.ToString()); }
 

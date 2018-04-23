@@ -4,7 +4,6 @@ using UserInformationUWP.Services;
 using UserInformationUWP.ViewModels.Base;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using UserInformationUWP.ViewModels.Base.UserControlViewModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -33,29 +32,28 @@ namespace UserInformationUWP.ViewModels
             currentStep = ControlUserInformations.First(s => s.Index == currentIndex);
         }
 
-        private BaseControllerViewModel currentStep;
-        public BaseControllerViewModel CurrentStep
+        private BaseControlerViewModel currentStep;
+        public BaseControlerViewModel CurrentStep
         {
             get => currentStep;
             set => SetProperty(ref currentStep, value);
         }
 
-        private ReadOnlyCollection<BaseControllerViewModel> controlUserInformations;
-        public ReadOnlyCollection<BaseControllerViewModel> ControlUserInformations
+        private ReadOnlyCollection<BaseControlerViewModel> controlUserInformations;
+        public ReadOnlyCollection<BaseControlerViewModel> ControlUserInformations
         {
             get
             {
                 if (controlUserInformations == null)
-                    LeodControlUserInformations();
+                    LoadControlUserInformations();
 
                 return controlUserInformations;
             }
         }
 
-
-        private void LeodControlUserInformations()
+        private void LoadControlUserInformations()
         {
-            var stepsList = new List<BaseControllerViewModel>
+            var stepsList = new List<BaseControlerViewModel>
             {
                 new FirstNameViewModel(userInformationService),
                 new LastNameViewModel(userInformationService),
@@ -63,7 +61,7 @@ namespace UserInformationUWP.ViewModels
                 new PhoneNumberViewModel(userInformationService)
             };
 
-            controlUserInformations = new ReadOnlyCollection<BaseControllerViewModel>(stepsList);
+            controlUserInformations = new ReadOnlyCollection<BaseControlerViewModel>(stepsList);
         }
 
         private bool next;

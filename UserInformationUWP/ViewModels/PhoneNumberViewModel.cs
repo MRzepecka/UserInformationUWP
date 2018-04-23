@@ -1,10 +1,10 @@
 ﻿using UserInformationUWP.Enumes;
 using UserInformationUWP.Services;
-using UserInformationUWP.ViewModels.Base.UserControlViewModel;
+using UserInformationUWP.ViewModels.Base;
 
 namespace UserInformationUWP.ViewModels
 {
-    class PhoneNumberViewModel : BaseControllerViewModel
+    class PhoneNumberViewModel : BaseControlerViewModel
     {
         public override string NameText { get => ResourceLoader.GetString(UserInformationIndex.PhoneNumber.ToString()); }
 

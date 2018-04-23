@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UserInformationUWP.Services;
 using UserInformationUWP.ViewModels.Base;
-using UserInformationUWP.ViewModels.Base.UserControlViewModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -13,37 +12,37 @@ namespace UserInformationUWP.ViewModels
     {
         private UserInformationService userInformationService;
 
-        public RelayCommand ReturnToStrartCommand { get; }
+        public RelayCommand ReturnToStartCommand { get; }
 
         public SummaryViewModel(UserInformationService userInformationService)
         {
             this.userInformationService = userInformationService;
-            ReturnToStrartCommand = new RelayCommand(GoToMain);
+            ReturnToStartCommand = new RelayCommand(GoToMain);
         }
 
-        private ObservableCollection<BaseControllerViewModel> controlUserInformations;
+        private ObservableCollection<BaseControlerViewModel> controlUserInformationList;
 
-        public ObservableCollection<BaseControllerViewModel> ControlUserInformations
+        public ObservableCollection<BaseControlerViewModel> ControlUserInformationList
         {
             get 
             {
-                if (controlUserInformations == null)
-                    LeodControlUserInformations();
+                if (controlUserInformationList == null)
+                    LoadControlUserInformations();
 
-                return controlUserInformations;
+                return controlUserInformationList;
             }
         }
 
-        private void LeodControlUserInformations()
+        private void LoadControlUserInformations()
         {
-            var stepsList = new List<BaseControllerViewModel>
+            var stepsList = new List<BaseControlerViewModel>
             {
                 new FirstNameViewModel(userInformationService),
                 new LastNameViewModel(userInformationService),
                 new AddressViewModel(userInformationService),
                 new PhoneNumberViewModel(userInformationService)
             };
-            controlUserInformations = new ObservableCollection<BaseControllerViewModel>(stepsList);
+            controlUserInformationList = new ObservableCollection<BaseControlerViewModel>(stepsList);
         }
 
         private void GoToMain()

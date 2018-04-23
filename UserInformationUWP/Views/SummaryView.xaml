@@ -40,7 +40,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <ListView   
-              ItemsSource="{Binding ControlUserInformations, Mode=OneWay}"  
+              ItemsSource="{Binding ControlUserInformationList, Mode=OneWay}"  
               IsItemClickEnabled="False"
               SelectionMode="None"
               MinWidth="250" Margin="5">
@@ -55,6 +55,6 @@
                 </ListView>
             </Grid>
         </StackPanel>
-        <Button Command="{Binding ReturnToStrartCommand}" Content="Wróć" Padding="10" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Command="{Binding ReturnToStartCommand}" Content="Wróć" Padding="10" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

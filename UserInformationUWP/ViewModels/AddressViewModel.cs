@@ -1,10 +1,10 @@
 ﻿using UserInformationUWP.Enumes;
 using UserInformationUWP.Services;
-using UserInformationUWP.ViewModels.Base.UserControlViewModel;
+using UserInformationUWP.ViewModels.Base;
 
 namespace UserInformationUWP.ViewModels
 {
-    class AddressViewModel : BaseControllerViewModel
+    class AddressViewModel : BaseControlerViewModel
     {
         public override string NameText => ResourceLoader.GetString(UserInformationIndex.Address.ToString());
 

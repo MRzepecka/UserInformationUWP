@@ -40,11 +40,11 @@
 
             <TextBlock  Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0"
                    RelativePanel.AlignLeftWithPanel="True"
-                   RelativePanel.Below="pageHeader" Text="{Binding  CurrentStep.NameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding isVisible}" />
+                   Text="{Binding  CurrentStep.NameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding isVisible}"/>
 
             <TextBox  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1"
                    RelativePanel.AlignLeftWithPanel="True"
-                   RelativePanel.Below="pageHeader" Text="{Binding  CurrentStep.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding isVisible}" />
+                   Text="{Binding  CurrentStep.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding isVisible}" />
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -58,7 +58,7 @@
                     Wstecz
                 </Button>
             <Button  Grid.Column="1" HorizontalAlignment="Center" Command="{Binding NextCommand }">Następne</Button>
-            <Button Grid.Column="4" HorizontalAlignment="Center" Command="{Binding FinishCommand}">Zakończ</Button>
+            <Button Grid.Column="2" HorizontalAlignment="Center" Command="{Binding FinishCommand}">Zakończ</Button>
         </Grid>
     </Grid>
 </Page>

@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Enumes\UserInformationIndex.cs" />
     <Compile Include="Interfaces\IUserInfromationService.cs" />
+    <Compile Include="ValidationMethods.cs" />
     <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="ViewModels\LastNameViewModel.cs" />
     <Compile Include="ViewModels\PhoneNumberViewModel.cs" />
