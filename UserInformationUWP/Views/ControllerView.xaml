@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="UserInformationUWP.Views.ControllerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UserInformationUWP.Views"
+    xmlns:view="using:UserInformationUWP.Views"
+    xmlns:viewModels="using:UserInformationUWP.ViewModels"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="MaxHeight" Value="100"/>
+                <Setter Property="MaxWidth" Value="200"/>
+                <Setter Property="Foreground" Value="#F4762B"/>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="MaxHeight" Value="100"/>
+                <Setter Property="MinWidth" Value="150"/>
+                <Setter Property="Foreground" Value="#F4762B"/>
+            </Style>
+           
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock  Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0"
+                   RelativePanel.AlignLeftWithPanel="True"
+                   RelativePanel.Below="pageHeader" Text="{Binding  CurrentStep.NameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding isVisible}" />
+
+            <TextBox  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1"
+                   RelativePanel.AlignLeftWithPanel="True"
+                   RelativePanel.Below="pageHeader" Text="{Binding  CurrentStep.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding isVisible}" />
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+   
+                <Button  Grid.Column="0" HorizontalAlignment="Center"  Command="{Binding BackCommand}" >
+                    Wstecz
+                </Button>
+            <Button  Grid.Column="1" HorizontalAlignment="Center" Command="{Binding NextCommand }">Następne</Button>
+            <Button Grid.Column="4" HorizontalAlignment="Center" Command="{Binding FinishCommand}">Zakończ</Button>
+        </Grid>
+    </Grid>
+</Page>

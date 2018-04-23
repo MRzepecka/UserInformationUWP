@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="UserInformationUWP.Views.SummaryView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UserInformationUWP.Views"
+    xmlns:viewModels="using:UserInformationUWP.ViewModels.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="MaxHeight" Value="150"/>
+                <Setter Property="MaxWidth" Value="150"/>
+                <Setter Property="Foreground" Value="#F4762B"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Name="CodeStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Consolas"/>
+                <Setter Property="Margin" Value="0,0,10,0"/>
+                <Setter Property="Foreground" Value="MediumVioletRed"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"> 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListView   
+              ItemsSource="{Binding ControlUserInformations, Mode=OneWay}"  
+              IsItemClickEnabled="False"
+              SelectionMode="None"
+              MinWidth="250" Margin="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding NameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0"  Name="tb1" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource CodeStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackPanel>
+        <Button Command="{Binding ReturnToStrartCommand}" Content="Wróć" Padding="10" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</Page>
