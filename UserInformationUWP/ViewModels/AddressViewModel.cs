@@ -1,5 +1,5 @@
 ﻿using UserInformationUWP.Enumes;
-using UserInformationUWP.Services;
+using UserInformationUWP.Interfaces;
 using UserInformationUWP.ViewModels.Base;
 
 namespace UserInformationUWP.ViewModels
@@ -10,7 +10,7 @@ namespace UserInformationUWP.ViewModels
 
         private string value;
 
-        public AddressViewModel(UserInformationService informationServices)
+        public AddressViewModel(IUserInformationService informationServices)
         {
             userInformationService = informationServices;
             Index = UserInformationIndex.Address;

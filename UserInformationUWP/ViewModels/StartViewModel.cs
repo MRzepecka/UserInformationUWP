@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using System.Windows.Input;
 using UserInformationUWP.ViewModels.Base;
 using UserInformationUWP.Views;
 using Windows.ApplicationModel.Resources;
@@ -9,17 +10,14 @@ namespace UserInformationUWP.ViewModels
 {
     public class StartViewModel : BaseViewModel
     {
-        public RelayCommand GoToStartCommand { get; }
+        public ICommand GoToStartCommand { get; }
 
         public StartViewModel()
         {
             GoToStartCommand = new RelayCommand(GoToStart);
         }
 
-        public string WelcomeText
-        {
-            get => ResourceLoader.GetString("Welcome");
-        }
+        public string WelcomeText => ResourceLoader.GetString("Welcome");
 
         public void GoToStart()
         {

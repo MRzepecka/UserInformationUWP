@@ -1,16 +1,16 @@
 ﻿using UserInformationUWP.Enumes;
-using UserInformationUWP.Services;
+using UserInformationUWP.Interfaces;
 using UserInformationUWP.ViewModels.Base;
 
 namespace UserInformationUWP.ViewModels
 {
     public class LastNameViewModel : BaseControlerViewModel
     {
-        public override string NameText { get => ResourceLoader.GetString(UserInformationIndex.LastName.ToString()); }
+        public override string NameText => ResourceLoader.GetString(UserInformationIndex.LastName.ToString()); 
 
         private string value;
 
-        public LastNameViewModel(UserInformationService informationServices)
+        public LastNameViewModel(IUserInformationService informationServices)
         {
             userInformationService = informationServices;
             Index = UserInformationIndex.LastName;

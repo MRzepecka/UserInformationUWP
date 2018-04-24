@@ -1,13 +1,11 @@
 ﻿using UserInformationUWP.Enumes;
-using UserInformationUWP.Services;
-using System;
-using System.Collections;
+using UserInformationUWP.Interfaces;
 
 namespace UserInformationUWP.ViewModels.Base
 {
     public abstract class BaseControlerViewModel : BaseViewModel
     { 
-        protected UserInformationService userInformationService;
+        protected IUserInformationService userInformationService;
 
         public abstract string NameText { get; }
 

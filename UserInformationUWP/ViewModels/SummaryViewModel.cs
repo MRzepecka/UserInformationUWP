@@ -1,7 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using UserInformationUWP.Services;
+using UserInformationUWP.Interfaces;
 using UserInformationUWP.ViewModels.Base;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,11 +9,11 @@ namespace UserInformationUWP.ViewModels
 {
     public class SummaryViewModel : BaseViewModel
     {
-        private UserInformationService userInformationService;
+        private IUserInformationService userInformationService;
 
         public RelayCommand ReturnToStartCommand { get; }
 
-        public SummaryViewModel(UserInformationService userInformationService)
+        public SummaryViewModel(IUserInformationService userInformationService)
         {
             this.userInformationService = userInformationService;
             ReturnToStartCommand = new RelayCommand(GoToMain);
@@ -24,7 +23,7 @@ namespace UserInformationUWP.ViewModels
 
         public ObservableCollection<BaseControlerViewModel> ControlUserInformationList
         {
-            get 
+            get
             {
                 if (controlUserInformationList == null)
                     LoadControlUserInformations();
@@ -35,14 +34,13 @@ namespace UserInformationUWP.ViewModels
 
         private void LoadControlUserInformations()
         {
-            var stepsList = new List<BaseControlerViewModel>
+            controlUserInformationList = new ObservableCollection<BaseControlerViewModel>
             {
                 new FirstNameViewModel(userInformationService),
                 new LastNameViewModel(userInformationService),
                 new AddressViewModel(userInformationService),
                 new PhoneNumberViewModel(userInformationService)
             };
-            controlUserInformationList = new ObservableCollection<BaseControlerViewModel>(stepsList);
         }
 
         private void GoToMain()

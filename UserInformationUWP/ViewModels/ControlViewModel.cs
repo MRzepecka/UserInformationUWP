@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using UserInformationUWP.Interfaces;
 
 namespace UserInformationUWP.ViewModels
 {
@@ -14,7 +15,7 @@ namespace UserInformationUWP.ViewModels
     {
         private UserInformationIndex currentIndex;
 
-        private UserInformationService userInformationService;
+        private IUserInformationService userInformationService;
 
         public RelayCommand NextCommand { get;}
         public RelayCommand BackCommand { get;}

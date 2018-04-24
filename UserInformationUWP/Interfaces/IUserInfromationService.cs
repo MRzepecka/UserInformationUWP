@@ -2,7 +2,7 @@
 
 namespace UserInformationUWP.Interfaces
 {
-    public interface IUserInfromationService
+    public interface IUserInformationService
     {
         string GetFirstName();
 

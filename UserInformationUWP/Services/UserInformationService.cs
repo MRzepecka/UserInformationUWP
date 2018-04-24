@@ -3,7 +3,7 @@ using UserInformationUWP.Models;
 
 namespace UserInformationUWP.Services
 {
-    public class UserInformationService: IUserInfromationService
+    public class UserInformationService: IUserInformationService
     {
         private UserInformation userInformation;
 

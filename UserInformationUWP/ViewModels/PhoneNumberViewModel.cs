@@ -1,4 +1,5 @@
 ﻿using UserInformationUWP.Enumes;
+using UserInformationUWP.Interfaces;
 using UserInformationUWP.Services;
 using UserInformationUWP.ViewModels.Base;
 
@@ -6,11 +7,11 @@ namespace UserInformationUWP.ViewModels
 {
     class PhoneNumberViewModel : BaseControlerViewModel
     {
-        public override string NameText { get => ResourceLoader.GetString(UserInformationIndex.PhoneNumber.ToString()); }
+        public override string NameText => ResourceLoader.GetString(UserInformationIndex.PhoneNumber.ToString()); 
 
         private string value;
 
-        public PhoneNumberViewModel(UserInformationService informationServices)
+        public PhoneNumberViewModel(IUserInformationService informationServices)
         {
             userInformationService = informationServices;
             Index = UserInformationIndex.PhoneNumber;
